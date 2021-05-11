@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     # resource: いいねの詳細ページがなく、idの受け渡しもないため単数形
     resources :post_comments, only: [:create, :destroy]
   end
+  resources :users, only: [:show, :edit, :update]
 
 end
