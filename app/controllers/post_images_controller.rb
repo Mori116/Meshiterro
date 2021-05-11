@@ -12,11 +12,14 @@ def create
 end
 
 def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page]).reverse_order
+    # 1ページ分の決められた数のデータだけを、新しい順に取得するように変更
+    # pageメソッドは、kaminariをインストールしたことで使用可能となる
 end
 
 def show
     @post_image = PostImage.find(params[:id])
+    @post_comment = PostComment.new
 end
 
 def destroy
